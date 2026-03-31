@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employer - Myway</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Myway<span>.</span></div>
+            <div id="nav-links"></div>
+            <a href="index.html" style="color: #0f172a; cursor: pointer;">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <section class="hero-section">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <h1>Employer Portal</h1>
+                    <p>Find top talent quickly and manage your hiring pipeline.</p>
+                </div>
+            </div>
+        </section>
+        <section id="dashboard-section">
+            <div id="dashboard-content">
+                <div class="dashboard-card">
+                    <h2>Welcome to Employer Dashboard</h2>
+                    <p>Post jobs, search candidates, and manage your hiring process in real time.</p>
+                    <div class="role-card-grid">
+                        <a href="post-job.html" class="role-card" style="text-decoration: none; color: inherit;">
+                            <h4>📋 Post Job</h4>
+                            <p>Publish a job posting in 30 seconds</p>
+                        </a>
+                        <a href="candidate-search.html" class="role-card" style="text-decoration: none; color: inherit;">
+                            <h4>🔍 Search Candidates</h4>
+                            <p>Filter by skills, persona, and experience</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        localStorage.setItem('myway_user', JSON.stringify({ name: 'Guest Employer', email: 'guest_employer@myway.local', role: 'employer', isPremium: false }));
+    </script>
+</body>
+</html>

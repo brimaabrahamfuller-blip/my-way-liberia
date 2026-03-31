@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counselor - Myway</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Myway<span>.</span></div>
+            <div id="nav-links"></div>
+            <a href="index.html" style="color: #0f172a; cursor: pointer;">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <section class="hero-section">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <h1>Counselor Portal</h1>
+                    <p>Guide the next generation of Liberian professionals.</p>
+                </div>
+            </div>
+        </section>
+        <section id="dashboard-section">
+            <div id="dashboard-content">
+                <div class="dashboard-card">
+                    <h2>Welcome to Counselor Dashboard</h2>
+                    <p>Manage mentees, track progress, and handle mentorship match requests.</p>
+                    <div class="role-card-grid">
+                        <a href="student-registry.html" class="role-card" style="text-decoration: none; color: inherit;">
+                            <h4>👥 Student Registry</h4>
+                            <p>Track mentee progress in real time</p>
+                        </a>
+                        <a href="match-requests.html" class="role-card" style="text-decoration: none; color: inherit;">
+                            <h4>🤝 Match Requests</h4>
+                            <p>Accept new mentorship requests</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        localStorage.setItem('myway_user', JSON.stringify({ name: 'Guest Counselor', email: 'guest_counselor@myway.local', role: 'counselor', isPremium: false }));
+    </script>
+</body>
+</html>

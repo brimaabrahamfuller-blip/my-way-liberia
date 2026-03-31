@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume Builder - Myway</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><nav class="navbar"><div class="logo">Myway<span>.</span></div><div id="breadcrumb"><a href="student.html">Dashboard</a> > Resume Builder</div></nav></header>
+<main>
+<section class="page-header"><h1>Resume Builder</h1><p>Create a professional CV with guided sections</p></section>
+<section class="form-card" style="max-width:700px; margin:20px auto;">
+<input id="name" placeholder="Full Name" required>
+<input id="title" placeholder="Professional Title" required>
+<textarea id="summary" placeholder="Summary" style="height:100px;"></textarea>
+<input id="skills" placeholder="Skills (comma separated)">
+<button class="btn btn-primary" id="generate-resume">Generate Preview</button>
+</section>
+<section class="role-card-grid" id="preview"></section>
+</main>
+<script src="features/resume-builder.js"></script>
+</body>
+</html>

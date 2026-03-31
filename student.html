@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student - Myway</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Myway<span>.</span></div>
+            <div id="nav-links"></div>
+            <a href="index.html" style="color: #0f172a; cursor: pointer;">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <section class="hero-section">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <h1>Student Portal</h1>
+                    <p>Your personalized career guidance and learning hub.</p>
+                </div>
+            </div>
+        </section>
+        <section id="dashboard-section">
+            <div id="dashboard-content">
+                <div class="dashboard-card">
+                    <h2>Welcome to Your Student Dashboard</h2>
+                    <p>Explore learning paths, job matches, and mentorship opportunities tailored to your career goals.</p>
+                    <div class="role-card-grid">
+                        <a href="career-quiz.html" class="role-card" style="text-decoration: none; color: inherit;">
+                            <h4>🎯 Career Quiz</h4>
+                            <p>Discover your professional persona in 2 minutes</p>
+                        </a>
+                        <a href="ai-coach.html" class="role-card" style="text-decoration: none; color: inherit;">
+                            <h4>💬 AI Coach</h4>
+                            <p>Get instant feedback on CVs and interviews</p>
+                        </a>
+                        <a href="job-search.html" class="role-card" style="text-decoration: none; color: inherit;">
+                            <h4>💼 Job Search</h4>
+                            <p>Find opportunities matched to your skills</p>
+                        </a>
+                        <a href="learning-paths.html" class="role-card" style="text-decoration: none; color: inherit;">
+                            <h4>📚 Learning Paths</h4>
+                            <p>Curated courses for your career progression</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        localStorage.setItem('myway_user', JSON.stringify({ name: 'Guest Student', email: 'guest_student@myway.local', role: 'student', isPremium: false }));
+    </script>
+</body>
+</html>
