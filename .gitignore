@@ -1,1 +1,4 @@
 node_modules/'n.next/'n.env'n.env.local'nnpm-debug.log*
+
+node_modules/
+.next/
