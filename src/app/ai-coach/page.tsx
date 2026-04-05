@@ -3,10 +3,6 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 
-export const metadata = {
-  title: "AI Coach - Myway"
-};
-
 export default function AiCoach() {
   const [question, setQuestion] = useState("");
   const [persona, setPersona] = useState("Explorer");
