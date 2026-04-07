@@ -9,20 +9,22 @@ export const middleware = withAuth(
   {
     callbacks: {
       authorized: ({ token, req }) => {
+        const pathname = req.nextUrl.pathname;
+        
+        // Check role-based access first (more specific paths)
+        if (pathname.startsWith("/dashboard/student")) {
+          return !!token && token?.role === "STUDENT";
+        }
+        if (pathname.startsWith("/dashboard/employer")) {
+          return !!token && token?.role === "EMPLOYER";
+        }
+        if (pathname.startsWith("/dashboard/counselor")) {
+          return !!token && token?.role === "COUNSELOR";
+        }
+        
         // Check if user is trying to access a protected route
-        if (req.nextUrl.pathname.startsWith("/dashboard")) {
+        if (pathname.startsWith("/dashboard")) {
           return !!token;
-        }
-
-        // Check role-based access
-        if (req.nextUrl.pathname.startsWith("/dashboard/student")) {
-          return token?.role === "STUDENT";
-        }
-        if (req.nextUrl.pathname.startsWith("/dashboard/employer")) {
-          return token?.role === "EMPLOYER";
-        }
-        if (req.nextUrl.pathname.startsWith("/dashboard/counselor")) {
-          return token?.role === "COUNSELOR";
         }
 
         return true;

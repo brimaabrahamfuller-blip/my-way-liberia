@@ -56,9 +56,23 @@ export const authOptions: NextAuthOptions = {
           };
         } catch (error) {
           console.error("Auth error:", error);
-          if (error instanceof Error && error.message.includes("PrismaClientInitializationError")) {
-            throw new Error("Database connection failed");
+          
+          if (error instanceof Error) {
+            const errorMessage = error.message.toLowerCase();
+            
+            if (errorMessage.includes("prismaClientInitializationError") || 
+                errorMessage.includes("connect econnrefused") ||
+                errorMessage.includes("ECONNREFUSED")) {
+              console.error("Database connection failed during auth");
+              throw new Error("Database connection failed. Please try again.");
+            }
+            
+            if (errorMessage.includes("prismaClientRustPanicError")) {
+              console.error("Prisma runtime error during auth");
+              throw new Error("Database error. Please try again.");
+            }
           }
+          
           throw new Error("Authentication failed");
         }
       },
