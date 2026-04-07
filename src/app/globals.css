@@ -345,3 +345,30 @@ button {
     color: rgb(226 232 240);
   }
 }
+
+/* Brand Color Buttons */
+@layer components {
+  .btn-brand-orange {
+    @apply px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg font-medium hover:from-orange-600 hover:to-orange-700 active:from-orange-700 active:to-orange-800 transition-all shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-brand-blue {
+    @apply px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-medium hover:from-blue-700 hover:to-blue-800 active:from-blue-800 active:to-blue-900 transition-all shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .text-brand-orange {
+    @apply text-orange-600;
+  }
+
+  .text-brand-blue {
+    @apply text-blue-600;
+  }
+
+  .border-brand-orange {
+    @apply border-orange-500;
+  }
+
+  .border-brand-blue {
+    @apply border-blue-600;
+  }
+}

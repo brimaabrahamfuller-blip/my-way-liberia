@@ -56,6 +56,9 @@ export const authOptions: NextAuthOptions = {
           };
         } catch (error) {
           console.error("Auth error:", error);
+          if (error instanceof Error && error.message.includes("PrismaClientInitializationError")) {
+            throw new Error("Database connection failed");
+          }
           throw new Error("Authentication failed");
         }
       },

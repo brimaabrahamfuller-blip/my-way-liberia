@@ -53,6 +53,23 @@ export async function POST(req: NextRequest) {
     );
   } catch (error) {
     console.error("Signup error:", error);
+    
+    // Handle specific Prisma errors
+    if (error instanceof Error) {
+      if (error.message.includes("Unique constraint failed")) {
+        return NextResponse.json(
+          { error: "Email already registered" },
+          { status: 409 }
+        );
+      }
+      if (error.message.includes("PrismaClientInitializationError")) {
+        return NextResponse.json(
+          { error: "Database connection failed. Please try again later." },
+          { status: 503 }
+        );
+      }
+    }
+    
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }
