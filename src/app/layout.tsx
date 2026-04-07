@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { SessionProvider } from "next-auth/react";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
+import { Providers } from "@/components/Providers";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -93,12 +93,14 @@ export default async function RootLayout({
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
+          // @ts-ignore
+          importance="low"
         />
       </head>
       <body>
-        <SessionProvider session={session}>
+        <Providers session={session}>
           {children}
-        </SessionProvider>
+        </Providers>
       </body>
     </html>
   );
