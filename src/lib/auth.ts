@@ -6,7 +6,7 @@ import bcrypt from "bcryptjs";
 import { UserRole } from "@/lib/types";
 
 export const authOptions: NextAuthOptions = {
-  adapter: PrismaAdapter(prisma),
+  adapter: PrismaAdapter(prisma) as any,
   session: { 
     strategy: "jwt",
     maxAge: 30 * 24 * 60 * 60, // 30 days
@@ -48,7 +48,7 @@ export const authOptions: NextAuthOptions = {
 
           return {
             id: user.id,
-            email: user.email,
+            email: user.email as string,
             name: user.name,
             image: user.image,
             role: user.role as UserRole,

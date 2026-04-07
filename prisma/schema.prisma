@@ -106,11 +106,12 @@ model Job {
 
 // Job Application model
 model JobApplication {
-  id        String   @id @default(cuid())
-  userId    String
-  jobId     String
-  status    String   @default("PENDING") // PENDING, ACCEPTED, REJECTED
-  appliedAt DateTime @default(now())
+  id          String   @id @default(cuid())
+  userId      String
+  jobId       String
+  status      String   @default("PENDING") // PENDING, ACCEPTED, REJECTED, APPLIED
+  coverLetter String?  @db.Text
+  appliedAt   DateTime @default(now())
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   job  Job  @relation(fields: [jobId], references: [id], onDelete: Cascade)
@@ -169,18 +170,23 @@ model Message {
 
 // Education model
 model Education {
-  id        String   @id @default(cuid())
-  userId    String
-  school    String
-  degree    String
-  field     String
-  startYear Int
-  endYear   Int?
-  createdAt DateTime @default(now())
+  id           String   @id @default(cuid())
+  userId       String
+  resumeId     String?
+  institution  String
+  degree       String
+  fieldOfStudy String
+  startDate    DateTime
+  endDate      DateTime?
+  grade        String?
+  description  String?  @db.Text
+  createdAt    DateTime @default(now())
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  resume Resume? @relation(fields: [resumeId], references: [id], onDelete: Cascade)
 
   @@index([userId])
+  @@index([resumeId])
   @@map("education")
 }
 
@@ -188,28 +194,40 @@ model Education {
 model Experience {
   id          String   @id @default(cuid())
   userId      String
+  resumeId    String?
+  jobTitle    String
   company     String
-  title       String
+  location    String?
   startDate   DateTime
   endDate     DateTime?
+  isCurrent   Boolean  @default(false)
   description String?  @db.Text
   createdAt   DateTime @default(now())
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  resume Resume? @relation(fields: [resumeId], references: [id], onDelete: Cascade)
 
   @@index([userId])
+  @@index([resumeId])
   @@map("experience")
 }
 
 // Resume model
 model Resume {
-  id        String   @id @default(cuid())
-  userId    String   @unique
-  content   String   @db.Text
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id             String   @id @default(cuid())
+  userId         String   @unique
+  title          String?
+  summary        String?  @db.Text
+  skills         String[]
+  certifications String[]
+  languages      String[]
+  content        String?  @db.Text
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user       User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  experience Experience[]
+  education  Education[]
 
   @@map("resumes")
 }

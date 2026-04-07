@@ -10,7 +10,7 @@ export async function GET(req: NextRequest) {
 
     const userId = (session.user as any).id;
 
-    const applications = await prisma.application.findMany({
+    const applications = await prisma.jobApplication.findMany({
       where: { userId },
       include: {
         job: true
@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
     const userId = (session.user as any).id;
     const { jobId, coverLetter, status } = await req.json();
 
-    const application = await prisma.application.create({
+    const application = await prisma.jobApplication.create({
       data: {
         userId,
         jobId,
@@ -59,7 +59,7 @@ export async function PUT(req: NextRequest) {
 
     const { id, coverLetter, status } = await req.json();
 
-    const application = await prisma.application.update({
+    const application = await prisma.jobApplication.update({
       where: { id },
       data: {
         coverLetter,
@@ -84,7 +84,7 @@ export async function DELETE(req: NextRequest) {
 
     if (!id) return NextResponse.json({ error: "ID required" }, { status: 400 });
 
-    await prisma.application.delete({
+    await prisma.jobApplication.delete({
       where: { id }
     });
 

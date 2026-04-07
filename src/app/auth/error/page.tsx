@@ -13,7 +13,6 @@ export default function AuthError() {
     OAuthCallback: "There was an error with the OAuth callback.",
     OAuthCreateAccount: "Could not create OAuth account.",
     EmailCreateAccount: "Could not create email account.",
-    Callback: "There was an error with the callback.",
     OAuthAccountNotLinked:
       "Email is already associated with another account.",
     EmailSignInError: "Check your email address.",
