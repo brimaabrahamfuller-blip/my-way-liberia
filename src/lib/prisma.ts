@@ -17,19 +17,11 @@ if (process.env.NODE_ENV !== "production") {
   globalForPrisma.prisma = prisma;
 }
 
-// Handle connection errors
-prisma.$connect().catch((error) => {
-  console.error("Prisma connection error:", error);
-  process.exit(1);
-});
-
-// Graceful shutdown
-process.on("SIGINT", async () => {
-  await prisma.$disconnect();
-  process.exit(0);
-});
-
-process.on("SIGTERM", async () => {
-  await prisma.$disconnect();
-  process.exit(0);
-});
+// In serverless environments like Vercel, we shouldn't call $connect() manually 
+// or exit the process on connection failure, as Prisma handles lazy connection.
+// We just log the error if it happens during a request.
+if (process.env.NODE_ENV === "development") {
+  prisma.$connect().catch((error) => {
+    console.error("Prisma connection error:", error);
+  });
+}
