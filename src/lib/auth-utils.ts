@@ -13,10 +13,10 @@ export async function requireAuth() {
 export async function requireRole(allowedRoles: string[]) {
   const session = await requireAuth();
   const userRole = (session.user as any)?.role;
-  
-  if (!allowedRoles.includes(userRole)) {
+
+  if (!userRole || !allowedRoles.includes(userRole)) {
     redirect("/unauthorized");
   }
-  
+
   return session;
 }
