@@ -2,6 +2,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
@@ -62,63 +63,93 @@ export default async function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {/* For Students */}
-            <div className="group p-6 sm:p-8 bg-gradient-to-br from-blue-50 to-white rounded-2xl shadow-lg hover:shadow-2xl transition-all border-2 border-blue-100 hover:border-blue-300">
-              <div className="text-4xl sm:text-5xl mb-4">🎯</div>
-              <h3 className="text-lg sm:text-2xl font-bold mb-3 text-gray-900">For Students</h3>
-              <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
-                Discover your career path through interactive quizzes, connect with experienced mentors, and build a professional resume with AI-powered feedback.
-              </p>
-              <ul className="text-xs sm:text-sm text-gray-600 space-y-2">
-                <li className="flex items-center gap-2">
-                  <span className="text-blue-600 font-bold">✓</span> Career guidance
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-blue-600 font-bold">✓</span> Mentorship matching
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-blue-600 font-bold">✓</span> Resume building
-                </li>
-              </ul>
+            <div className="group overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all border border-gray-100">
+              <div className="relative h-48 w-full">
+                <Image
+                  src="/images/students.jpg"
+                  alt="Liberian Students"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent" />
+                <div className="absolute bottom-4 left-4 text-white font-bold text-xl">For Students</div>
+              </div>
+              <div className="p-6">
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
+                  Discover your career path through interactive quizzes, connect with experienced mentors, and build a professional resume with AI-powered feedback.
+                </p>
+                <ul className="text-xs sm:text-sm text-gray-600 space-y-2">
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-600 font-bold">✓</span> Career guidance
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-600 font-bold">✓</span> Mentorship matching
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-600 font-bold">✓</span> Resume building
+                  </li>
+                </ul>
+              </div>
             </div>
 
             {/* For Employers */}
-            <div className="group p-6 sm:p-8 bg-gradient-to-br from-orange-50 to-white rounded-2xl shadow-lg hover:shadow-2xl transition-all border-2 border-orange-100 hover:border-orange-300">
-              <div className="text-4xl sm:text-5xl mb-4">💼</div>
-              <h3 className="text-lg sm:text-2xl font-bold mb-3 text-gray-900">For Employers</h3>
-              <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
-                Post job opportunities, search for pre-screened talent matched to your needs, and build your ideal team with confidence.
-              </p>
-              <ul className="text-xs sm:text-sm text-gray-600 space-y-2">
-                <li className="flex items-center gap-2">
-                  <span className="text-orange-600 font-bold">✓</span> Job posting
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-orange-600 font-bold">✓</span> Talent search
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-orange-600 font-bold">✓</span> Candidate screening
-                </li>
-              </ul>
+            <div className="group overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all border border-gray-100">
+              <div className="relative h-48 w-full">
+                <Image
+                  src="/images/employers.jpg"
+                  alt="Professional Employers in Liberia"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-orange-900/60 to-transparent" />
+                <div className="absolute bottom-4 left-4 text-white font-bold text-xl">For Employers</div>
+              </div>
+              <div className="p-6">
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
+                  Post job opportunities, search for pre-screened talent matched to your needs, and build your ideal team with confidence.
+                </p>
+                <ul className="text-xs sm:text-sm text-gray-600 space-y-2">
+                  <li className="flex items-center gap-2">
+                    <span className="text-orange-600 font-bold">✓</span> Job posting
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-orange-600 font-bold">✓</span> Talent search
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-orange-600 font-bold">✓</span> Candidate screening
+                  </li>
+                </ul>
+              </div>
             </div>
 
             {/* For Counselors */}
-            <div className="group p-6 sm:p-8 bg-gradient-to-br from-blue-50 to-orange-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all border-2 border-blue-200 hover:border-orange-300 sm:col-span-2 lg:col-span-1">
-              <div className="text-4xl sm:text-5xl mb-4">🤝</div>
-              <h3 className="text-lg sm:text-2xl font-bold mb-3 text-gray-900">For Counselors</h3>
-              <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
-                Guide students, manage mentees, and shape the next generation of professionals with comprehensive career counseling tools.
-              </p>
-              <ul className="text-xs sm:text-sm text-gray-600 space-y-2">
-                <li className="flex items-center gap-2">
-                  <span className="text-blue-600 font-bold">✓</span> Student management
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-orange-600 font-bold">✓</span> Mentee tracking
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-blue-600 font-bold">✓</span> Career insights
-                </li>
-              </ul>
+            <div className="group overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all border border-gray-100 sm:col-span-2 lg:col-span-1">
+              <div className="relative h-48 w-full">
+                <Image
+                  src="/images/counselors.jpg"
+                  alt="Career Counseling in Liberia"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent" />
+                <div className="absolute bottom-4 left-4 text-white font-bold text-xl">For Counselors</div>
+              </div>
+              <div className="p-6">
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
+                  Guide students, manage mentees, and shape the next generation of professionals with comprehensive career counseling tools.
+                </p>
+                <ul className="text-xs sm:text-sm text-gray-600 space-y-2">
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-600 font-bold">✓</span> Student management
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-orange-600 font-bold">✓</span> Mentee tracking
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-600 font-bold">✓</span> Career insights
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
