@@ -133,12 +133,17 @@ export default async function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: "🔍", title: "Smart Job Matching", desc: "AI-powered job recommendations" },
-              { icon: "👥", title: "Mentorship Network", desc: "Connect with industry experts" },
-              { icon: "📊", title: "Career Analytics", desc: "Track your professional growth" },
-              { icon: "🎓", title: "Learning Paths", desc: "Personalized skill development" },
+              { icon: "🔍", title: "Smart Job Matching", desc: "AI-powered job recommendations", comingSoon: false },
+              { icon: "👥", title: "Mentorship Network", desc: "Connect with industry experts", comingSoon: false },
+              { icon: "📊", title: "Career Analytics", desc: "Track your professional growth", comingSoon: true },
+              { icon: "🎓", title: "Learning Paths", desc: "Personalized skill development", comingSoon: true },
             ].map((feature, idx) => (
-              <div key={idx} className="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20 hover:border-white/40 transition-all">
+              <div key={idx} className="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20 hover:border-white/40 transition-all relative">
+                {feature.comingSoon && (
+                  <div className="absolute top-3 right-3 bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                    Coming Soon
+                  </div>
+                )}
                 <div className="text-4xl mb-3">{feature.icon}</div>
                 <h3 className="text-lg font-bold text-white mb-2">{feature.title}</h3>
                 <p className="text-blue-100 text-sm">{feature.desc}</p>
@@ -155,7 +160,7 @@ export default async function Home() {
             Ready to Transform Your Career?
           </h2>
           <p className="text-xl text-gray-700 mb-10">
-            Join thousands of Liberian professionals already using MyWay to advance their careers.
+            Built for Liberia's next generation of professionals. Start your journey today.
           </p>
           
           {!session && (
