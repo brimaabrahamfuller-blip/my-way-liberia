@@ -25,7 +25,7 @@ export default async function Home() {
               Your Career Path Starts Here
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed px-2">
-              Connect with opportunities, get mentored by industry experts, and build your dream career in Liberia and beyond.
+              Connect with opportunities, get mentored by professionals who know Liberia, and take your career further.
             </p>
 
             {!session && (
@@ -166,16 +166,19 @@ export default async function Home() {
             {[
               { icon: "🔍", title: "Smart Job Matching", desc: "AI-powered job recommendations" },
               { icon: "👥", title: "Mentorship Network", desc: "Connect with industry experts" },
-              { icon: "📊", title: "Career Analytics", desc: "Track your professional growth" },
-              { icon: "🎓", title: "Learning Paths", desc: "Personalized skill development" },
+              { icon: "📊", title: "Career Analytics", desc: "Track your professional growth", comingSoon: true },
+              { icon: "🎓", title: "Learning Paths", desc: "Personalized skill development", comingSoon: true },
             ].map((feature, idx) => (
               <div
                 key={idx}
                 className="bg-white/10 backdrop-blur-md p-4 sm:p-6 rounded-xl border border-white/20 hover:border-white/40 transition-all"
               >
                 <div className="text-3xl sm:text-4xl mb-3">{feature.icon}</div>
-                <h3 className="text-base sm:text-lg font-bold text-white mb-2">
+                <h3 className="text-base sm:text-lg font-bold text-white mb-2 flex items-center gap-2">
                   {feature.title}
+                  {feature.comingSoon && (
+                    <span className="bg-white/20 text-[10px] px-2 py-0.5 rounded uppercase tracking-wider font-normal">Coming Soon</span>
+                  )}
                 </h3>
                 <p className="text-blue-100 text-xs sm:text-sm">{feature.desc}</p>
               </div>
@@ -191,7 +194,7 @@ export default async function Home() {
             Ready to Transform Your Career?
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-8 md:mb-10">
-            Join thousands of Liberian professionals already using MyWay to advance their careers.
+            Built for Liberia's next generation of professionals. Start your journey today.
           </p>
 
           {!session && (

@@ -79,24 +79,24 @@ export default function Footer() {
             <h4 className="text-base md:text-lg font-semibold mb-4 text-orange-300">Resources</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-blue-100 hover:text-orange-300 transition-colors text-sm md:text-base">
+                <Link href="/about" className="text-blue-100 hover:text-orange-300 transition-colors text-sm md:text-base">
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-blue-100 hover:text-orange-300 transition-colors text-sm md:text-base">
+                <Link href="/contact" className="text-blue-100 hover:text-orange-300 transition-colors text-sm md:text-base">
                   Contact Support
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-blue-100 hover:text-orange-300 transition-colors text-sm md:text-base">
+                <Link href="/privacy" className="text-blue-100 hover:text-orange-300 transition-colors text-sm md:text-base">
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-blue-100 hover:text-orange-300 transition-colors text-sm md:text-base">
+                <Link href="/terms" className="text-blue-100 hover:text-orange-300 transition-colors text-sm md:text-base">
                   Terms of Service
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
